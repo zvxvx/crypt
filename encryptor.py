@@ -2,12 +2,11 @@ def main():
   menu()
 
 def menu():
-   choice = input("""
+   c = int(input("""
    Select the type of encryption you wish to perform: 
    1) Symmetric Encryption
    2) Asymmetric Encryption
-   """)
-   c = int(choice)
+   """))
 
    if c == 1:
     sym_menu()
@@ -15,12 +14,11 @@ def menu():
     asym_menu()
 
 def sym_menu():
-  sym_enc = input("""
+  s = int(input("""
     Select the type of cipher you wish to use:
     1) Traditional Cipher
     2) Modern Cipher
-    """)
-  s = int(sym_enc)
+    """))
 
   if s == 1:
     trad_ciphers()
@@ -28,11 +26,10 @@ def sym_menu():
     mod_ciphers()
 
 def asym_menu():
-  asym_enc = input("""
+  a = int(input("""
   Select the type of Asymmetric cipher you wish to use:
   1) RSA (Rivist-Shamir-Adleman)
-  """)
-  a = int(asym_enc)
+  """))
 
   if a == 1:
     rsa()
@@ -41,13 +38,12 @@ def rsa():
   print("This is the RSA cipher")
 
 def trad_ciphers():
-    trad_ciph = input("""
+    t = int(input("""
     Select the type of traditional cipher you wish to use:
     1) Caeser Cipher
     2) Autokey Cipher
     3) Rail Fence Cipher
-    """)
-    t = int(trad_ciph)
+    """))
 
     if t == 1:
       caeser()
@@ -66,12 +62,11 @@ def rail():
   print("This is the rail fence cipher")
 
 def mod_ciphers():
-    mod_ciph = input("""
+    m = int(input("""
     Select the type of modern cipher you wish to use:
     1) AES (Advanced Encryption Standard)
     2) DES (Data Encryption Standard)
-    """)
-    m = int(mod_ciph)
+    """))
 
     if m == 1:
       aes()
