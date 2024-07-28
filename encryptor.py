@@ -53,7 +53,27 @@ def trad_ciphers():
       rail()
 
 def caeser():
-  print("This is the caeser cipher")
+  print("""
+  CAESER CIPHER
+  """)
+  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  encrypted = ""
+  pt = input("Input plaintext: ").upper()
+  key = int(input("Input key: "))
+  i = 0 
+  while (i < len(pt)):
+    c = alphabet.index(pt[i])
+    newIndex = (c + key) % 26
+    newChar = alphabet[newIndex]
+    encrypted += newChar
+    i = i + 1
+  print(f"""
+  ==========
+  Your encrypted message is: {encrypted}.
+  Your key is {key}. Please keep this safe!
+  Decypher using the unsigned or signed inverse of the key.
+  ==========
+  """)
 
 def autokey():
   print("This is the autokey cipher")
