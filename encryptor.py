@@ -76,7 +76,32 @@ def caeser():
   """)
 
 def autokey():
-  print("This is the autokey cipher")
+  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  c = ""
+  i = 0
+  question = input("Do you wish to encrypt or decrypt? ")
+  if question == "encrypt":   
+    pt = input("Input plaintext: ").upper()
+    key = input("Input key: ").upper()
+    while (i < len(pt)):
+      if (i < len(key)):
+        k_element= key[i]
+      else:
+        k_element = pt[i - len(key)]
+      c_i= (alphabet.index(pt[i]) + alphabet.index(k_element)) % 26
+      c_e = alphabet[c_i]
+      c += c_e
+      i = i + 1
+    print(f"""
+    ==========
+    Your encrypted message is: {c}.
+    Your key is {key}. Please keep this safe!
+    ==========
+    """)
+  elif question == "decrypt":
+    print("Decrypting...")
+
+    
 
 def rail():
   print("This is the rail fence cipher")
