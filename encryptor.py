@@ -57,27 +57,30 @@ def caeser():
   CAESER CIPHER
   """)
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  encrypted = ""
+  m = ""
   pt = input("Input plaintext: ").upper()
   key = int(input("Input key: "))
   i = 0 
   while (i < len(pt)):
-    c = alphabet.index(pt[i])
-    newIndex = (c + key) % 26
-    newChar = alphabet[newIndex]
-    encrypted += newChar
+    c_i = alphabet.index(pt[i])
+    m_i = (c_i + key) % 26
+    m_e = alphabet[m_i]
+    m += m_e
     i = i + 1
   print(f"""
   ==========
-  Your encrypted message is: {encrypted}.
+  Your encrypted message is: {m}.
   Your key is {key}. Please keep this safe!
   Decypher using the unsigned or signed inverse of the key.
   ==========
   """)
 
 def autokey():
+  print("""
+  AUTOKEY CIPHER
+  """)
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  c = ""
+  m = ""
   i = 0
   question = input("Do you wish to encrypt or decrypt? ")
   if question == "encrypt":   
@@ -88,13 +91,13 @@ def autokey():
         k_element= key[i]
       else:
         k_element = pt[i - len(key)]
-      c_i= (alphabet.index(pt[i]) + alphabet.index(k_element)) % 26
-      c_e = alphabet[c_i]
-      c += c_e
+      m_i= (alphabet.index(pt[i]) + alphabet.index(k_element)) % 26
+      m_e = alphabet[m_i]
+      m += m_e
       i = i + 1
     print(f"""
     ==========
-    Your encrypted message is: {c}.
+    Your encrypted message is: {m}.
     Your key is {key}. Please keep this safe!
     ==========
     """)
