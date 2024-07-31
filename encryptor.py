@@ -115,8 +115,7 @@ def autokey():
       i = i + 1
     print(f"""
     ==========
-    Your encrypted message is: {m}.
-    Your key is {key}. Please keep this safe!
+    Your decrypted message is: {m}.
     ==========
     """)
     
