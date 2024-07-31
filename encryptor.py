@@ -65,7 +65,7 @@ def caeser():
   pt = input("Input plaintext: ").upper()
   key = int(input("Input key: "))
   i = 0 
-  while (i < len(pt)):
+  while i < len(pt):
     c_i = alphabet.index(pt[i])
     m_i = (c_i + key) % 26
     m_e = alphabet[m_i]
@@ -90,8 +90,8 @@ def autokey():
   if question == "e":   
     pt = input("Input plaintext: ").upper()
     key = input("Input key: ").upper()
-    while (i < len(pt)):
-      if (i < len(key)):
+    while i < len(pt):
+      if i < len(key):
         k_element= key[i]
       else:
         k_element = pt[i - len(key)]
