@@ -82,8 +82,8 @@ def autokey():
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   m = ""
   i = 0
-  question = input("Do you wish to encrypt or decrypt? ")
-  if question == "encrypt":   
+  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+  if question == "e":   
     pt = input("Input plaintext: ").upper()
     key = input("Input key: ").upper()
     while (i < len(pt)):
@@ -101,9 +101,24 @@ def autokey():
     Your key is {key}. Please keep this safe!
     ==========
     """)
-  elif question == "decrypt":
-    print("Decrypting...")
-
+  elif question == "d":
+    ct = input("Input ciphertext: ").upper()
+    key = input("Input key: ").upper()
+    while i < len(ct):
+      if i < len(key):
+        k_element= key[i]
+      else:
+        k_element = m[i - len(key)]
+      m_i= (alphabet.index(ct[i]) - alphabet.index(k_element) + 26) % 26
+      m_e = alphabet[m_i]
+      m += m_e
+      i = i + 1
+    print(f"""
+    ==========
+    Your encrypted message is: {m}.
+    Your key is {key}. Please keep this safe!
+    ==========
+    """)
     
 
 def rail():
