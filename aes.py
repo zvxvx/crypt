@@ -15,7 +15,7 @@ def encrypt_aes(plaintext, key):
     return f"""
     ==========
     Your encrypted message is: {ct}
-    Your key is {encoded_key}
+    Your key is: {encoded_key}
     Please keep this safe!
     ==========
     """
