@@ -55,16 +55,7 @@ def trad_ciphers():
     elif t == 2:
       autokey()
     elif t == 3:
-      question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-      if question == "e":
-        pt = input("Input plaintext: ")
-        rails = int(input("Number of rails: "))
-        print(rail_fence_cipher.encrypt_rail_fence(pt, rails))
-      elif question == "d":
-        ct = input("Input ciphertext: ")
-        rails = int(input("Number of rails: "))
-        print(rail_fence_cipher.decrypt_rail_fence(ct, rails))
-
+      rail()
 def caeser():
   print("""
   CAESER CIPHER
@@ -134,7 +125,15 @@ def autokey():
     
 
 def rail():
-  print("This is the rail fence cipher")
+  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+  if question == "e":
+    pt = input("Input plaintext: ")
+    rails = int(input("Number of rails: "))
+    print(rail_fence_cipher.encrypt_rail_fence(pt, rails))
+  elif question == "d":
+    ct = input("Input ciphertext: ")
+    rails = int(input("Number of rails: "))
+    print(rail_fence_cipher.decrypt_rail_fence(ct, rails))
 
 def mod_ciphers():
     m = int(input("""
@@ -144,14 +143,22 @@ def mod_ciphers():
     """))
 
     if m == 1:
-      aes()
+      mod_aes()
     elif m == 2:
-      des()
+      mod_des()
 
-def aes():
-  print("This is the AES cipher")
+def mod_aes():
+  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+  if question == "e":
+    key = aes.generate_key()
+    pt = input("Input plaintext " )
+    print(aes.encrypt_aes(pt, key))
+  elif question == "d":
+    ct = input("Please input ciphertext: ")
+    key = input("Please input your key: ")
+    print(aes.decrypt_aes(ct, key))
 
-def des():
+def mod_des():
   print("This is the DES cipher")
 
 main()
