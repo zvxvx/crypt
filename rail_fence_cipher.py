@@ -54,6 +54,6 @@ def decrypt_rail_fence(ciphertext, num_rails):
 
     return f"""
     ==========
-    Your encrypted message is: {''.join(result)}.
+    Your decrypted message is: {''.join(result)}.
     ==========
     """
