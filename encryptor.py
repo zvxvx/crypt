@@ -1,6 +1,7 @@
-from Crypto.Cipher import AES
-from Crypto.Random import get_random_bytes
-import sys
+import aes
+import des
+import rail_fence_cipher
+import rsa
 
 def main():
   menu()
@@ -54,7 +55,15 @@ def trad_ciphers():
     elif t == 2:
       autokey()
     elif t == 3:
-      rail()
+      question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+      if question == "e":
+        pt = input("Input plaintext: ")
+        rails = int(input("Number of rails: "))
+        print(rail_fence_cipher.encrypt_rail_fence(pt, rails))
+      elif question == "d":
+        ct = input("Input ciphertext: ")
+        rails = int(input("Number of rails: "))
+        print(rail_fence_cipher.decrypt_rail_fence(ct, rails))
 
 def caeser():
   print("""
