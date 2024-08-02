@@ -11,7 +11,12 @@ def encrypt_rail_fence(plaintext, num_rails):
             direction = -1
         row += direction
 
-    return ''.join(rail)
+    return f"""
+    ==========
+    Your encrypted message is: {''.join(rail)}.
+    Your key is {num_rails}. Please keep this safe!
+    ==========
+    """
 
 def decrypt_rail_fence(ciphertext, num_rails):
     rail_len = len(ciphertext)
@@ -47,4 +52,8 @@ def decrypt_rail_fence(ciphertext, num_rails):
             direction = -1
         row += direction
 
-    return ''.join(result)
+    return f"""
+    ==========
+    Your encrypted message is: {''.join(result)}.
+    ==========
+    """
