@@ -159,6 +159,14 @@ def mod_aes():
     print(aes.decrypt_aes(ct, key))
 
 def mod_des():
-  print("This is the DES cipher")
+  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+  if question == "e":
+    key = des.generate_key()
+    pt = input("Input plaintext " )
+    print(des.encrypt_des(pt, key))
+  elif question == "d":
+    ct = input("Please input ciphertext: ")
+    key = input("Please input your key: ")
+    print(des.decrypt_des(ct, key))
 
 main()
