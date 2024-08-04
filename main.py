@@ -37,10 +37,24 @@ def asym_menu():
   """))
 
   if a == 1:
-    rsa()
+    asym_rsa()
 
-def rsa():
-  print("This is the RSA cipher")
+def asym_rsa():
+  key_question = input("Generate new public and private keys? y/n ")
+  if key_question == "y":
+    rsa.generate_keys()
+    print("Keys have been generated in files private.pem and receiver.pem")
+  elif key_question == "n":
+    # This does not currently work. Keys need to be pulled in from files and not through console input!!!!
+    question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+    if question == "e":
+      pt = input("Input plaintext: ").strip()
+      key = null # will be pulled from file 
+      print(f"Your encrypted message: {rsa.encrypt_rsa(pt, key)}")
+    if question == "d":
+      ct = input("Input ciphertext: ").strip()
+      key = null # will be pulled from file 
+      print(rsa.decrypt_rsa(ct, key))
 
 def trad_ciphers():
     t = int(input("""
