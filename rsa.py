@@ -38,7 +38,7 @@ def encrypt_rsa(plaintext):
     return f"""
     ++++ ENCRYPTION COMPLETE ++++
     Your input has been encryped in file rsa/encrypted_data.bin
-    Encrypted preview: {base64.b64encode(ciphertext).decode("utf-8")}
+    Encryption b64 preview: {base64.b64encode(ciphertext).decode("utf-8")}
     ++++ ENCRYPTION COMPLETE ++++
     """
 
