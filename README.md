@@ -26,7 +26,7 @@ $ pip3 install pycryptodome
 $ python main.py
 ```
 
-Python 3.x
+- Python 3.x
 
 ```sh
 $ python3 main.py
