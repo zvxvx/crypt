@@ -74,6 +74,7 @@ def trad_ciphers():
       autokey()
     elif t == 3:
       rail()
+
 def caeser():
   print("""
   CAESER CIPHER
@@ -140,7 +141,6 @@ def autokey():
     Your decrypted message is: {m}.
     ==========
     """)
-    
 
 def rail():
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
