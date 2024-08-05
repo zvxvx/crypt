@@ -144,7 +144,7 @@ The plaintext is encrypted using the recipient's public key. Only the recipient 
 
 The ciphertext is decrypted using the recipient's private key.
 
-Key Features:
+#### Key Features:
 
 - Based on the mathematical difficulty of factoring large prime numbers
 - Widely used for secure data transmission
