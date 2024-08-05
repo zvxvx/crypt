@@ -36,7 +36,7 @@ def encrypt_rsa(plaintext):
 
     return f"""
     ++++ ENCRYPTION COMPLETE ++++
-    Your input has been encryped in file encrypted_data.bin
+    Your input has been encryped in file rsa/encrypted_data.bin
     ++++ ENCRYPTION COMPLETE ++++
     """
 

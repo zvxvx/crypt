@@ -45,7 +45,7 @@ def asym_rsa():
     rsa.generate_keys()
     print("""
     ++++ KEY GENERATION COMPLETE ++++
-    Keys have been generated in subdirectory rsa.
+    Public and private keys have been generated in subdirectory rsa.
     ++++ KEY GENERATION COMPLETE ++++
     """)
     rsa_en_de_cryptor()
