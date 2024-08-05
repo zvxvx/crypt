@@ -1,3 +1,4 @@
+import base64
 import os
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
@@ -37,7 +38,7 @@ def encrypt_rsa(plaintext):
     return f"""
     ++++ ENCRYPTION COMPLETE ++++
     Your input has been encryped in file rsa/encrypted_data.bin
-    Encrypted preview: {ciphertext}
+    Encrypted preview: {base64.b64encode(ciphertext).decode("utf-8")}
     ++++ ENCRYPTION COMPLETE ++++
     """
 
