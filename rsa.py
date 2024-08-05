@@ -64,3 +64,24 @@ def decrypt_rsa():
     {plaintext}
     ++++ DECRYPTION COMPLETE ++++
     """
+
+def asym_rsa():
+  key_question = input("Generate new public and private keys? y/n ")
+  if key_question == "y":
+    generate_keys()
+    print("""
+    ++++ KEY GENERATION COMPLETE ++++
+    Public and private keys have been generated in subdirectory rsa.
+    ++++ KEY GENERATION COMPLETE ++++
+    """)
+    return rsa_en_de_cryptor()
+  elif key_question == "n":
+    return rsa_en_de_cryptor()
+
+def rsa_en_de_cryptor():
+    question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+    if question == "e":
+      pt = input("Input plaintext: ").strip()
+      return encrypt_rsa(pt)
+    elif question == "d":
+      return decrypt_rsa()

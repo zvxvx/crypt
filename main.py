@@ -1,6 +1,5 @@
-import aes
-import des
-import rail_fence_cipher
+import mod
+import trad
 import rsa
 
 def main():
@@ -37,28 +36,7 @@ def asym_menu():
   """))
 
   if a == 1:
-    asym_rsa()
-
-def asym_rsa():
-  key_question = input("Generate new public and private keys? y/n ")
-  if key_question == "y":
-    rsa.generate_keys()
-    print("""
-    ++++ KEY GENERATION COMPLETE ++++
-    Public and private keys have been generated in subdirectory rsa.
-    ++++ KEY GENERATION COMPLETE ++++
-    """)
-    rsa_en_de_cryptor()
-  elif key_question == "n":
-    rsa_en_de_cryptor()
-
-def rsa_en_de_cryptor():
-    question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-    if question == "e":
-      pt = input("Input plaintext: ").strip()
-      print(rsa.encrypt_rsa(pt))
-    if question == "d":
-      print(rsa.decrypt_rsa())
+    print(rsa.asym_rsa())
 
 def trad_ciphers():
     t = int(input("""
@@ -69,89 +47,11 @@ def trad_ciphers():
     """))
 
     if t == 1:
-      caeser()
+      print(trad.caeser())
     elif t == 2:
-      autokey()
+      print(trad.autokey())
     elif t == 3:
-      rail()
-
-def caeser():
-  print("""
-  CAESER CIPHER
-  """)
-  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  m = ""
-  pt = input("Input plaintext or ciphertext: ").upper().strip()
-  key = int(input("Input key or inverse key: "))
-  i = 0 
-  while i < len(pt):
-    c_i = alphabet.index(pt[i])
-    m_i = (c_i + key) % 26
-    m_e = alphabet[m_i]
-    m += m_e
-    i = i + 1
-  print(f"""
-  ==========
-  Your encrypted message is: {m}.
-  Your key is {key}. Please keep this safe!
-  Decypher using the unsigned or signed inverse of the key.
-  ==========
-  """)
-
-def autokey():
-  print("""
-  AUTOKEY CIPHER
-  """)
-  alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  m = ""
-  i = 0
-  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-  if question == "e":   
-    pt = input("Input plaintext: ").upper().strip()
-    key = input("Input key: ").upper().strip()
-    while i < len(pt):
-      if i < len(key):
-        k_element= key[i]
-      else:
-        k_element = pt[i - len(key)]
-      m_i= (alphabet.index(pt[i]) + alphabet.index(k_element)) % 26
-      m_e = alphabet[m_i]
-      m += m_e
-      i = i + 1
-    print(f"""
-    ==========
-    Your encrypted message is: {m}.
-    Your key is {key}. Please keep this safe!
-    ==========
-    """)
-  elif question == "d":
-    ct = input("Input ciphertext: ").upper().strip()
-    key = input("Input key: ").upper().strip()
-    while i < len(ct):
-      if i < len(key):
-        k_element= key[i]
-      else:
-        k_element = m[i - len(key)]
-      m_i= (alphabet.index(ct[i]) - alphabet.index(k_element) + 26) % 26
-      m_e = alphabet[m_i]
-      m += m_e
-      i = i + 1
-    print(f"""
-    ==========
-    Your decrypted message is: {m}.
-    ==========
-    """)
-
-def rail():
-  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-  if question == "e":
-    pt = input("Input plaintext: ").strip()
-    rails = int(input("Number of rails: "))
-    print(rail_fence_cipher.encrypt_rail_fence(pt, rails))
-  elif question == "d":
-    ct = input("Input ciphertext: ").strip()
-    rails = int(input("Number of rails: "))
-    print(rail_fence_cipher.decrypt_rail_fence(ct, rails))
+      print(trad.rail_fence())
 
 def mod_ciphers():
     m = int(input("""
@@ -161,30 +61,8 @@ def mod_ciphers():
     """))
 
     if m == 1:
-      mod_aes()
+      print(mod.mod_aes())
     elif m == 2:
-      mod_des()
-
-def mod_aes():
-  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-  if question == "e":
-    key = aes.generate_key()
-    pt = input("Input plaintext " ).strip()
-    print(aes.encrypt_aes(pt, key))
-  elif question == "d":
-    ct = input("Please input ciphertext: ").strip()
-    key = input("Please input your key: ").strip()
-    print(aes.decrypt_aes(ct, key))
-
-def mod_des():
-  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-  if question == "e":
-    key = des.generate_key()
-    pt = input("Input plaintext " ).strip()
-    print(des.encrypt_des(pt, key))
-  elif question == "d":
-    ct = input("Please input ciphertext: ").strip()
-    key = input("Please input your key: ").strip()
-    print(des.decrypt_des(ct, key))
+      print(mod.mod_des())
 
 main()
