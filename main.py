@@ -6,16 +6,31 @@ def main():
   menu()
 
 def menu():
-   c = int(input("""
-   Select the type of encryption you wish to perform: 
-   1) Symmetric Encryption
-   2) Asymmetric Encryption
-   """))
-
-   if c == 1:
-    sym_menu()
-   elif c == 2:
-    asym_menu()
+  try:
+    c = int(input("""
+    Select the type of encryption you wish to perform: 
+    1) Symmetric Encryption
+    2) Asymmetric Encryption
+    3) Quit
+    """))
+    if c == 1:
+        sym_menu()
+    elif c == 2:
+        asym_menu()
+    elif c == 3:
+        print("""
+        Thank you for using Crypt!
+        """)
+    else:
+      print("""
+      Invalid choice. Try again.
+      """)
+      main()
+  except ValueError:
+    print("""
+    Invalid input. Must be an integer. Try again.
+    """)
+    main()
 
 def sym_menu():
   s = int(input("""
