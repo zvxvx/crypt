@@ -6,7 +6,7 @@ The CLA includes traditional ciphers such as the Caesar Cipher, Autokey Cipher, 
 
 #### Clone this repo.
 
-#### Install cryptodome if not installed already.
+#### Install pycryptodome if not installed already.
 
 ##### Note: $ is to denote terminal commands. Do not include it as part of the command.
 
