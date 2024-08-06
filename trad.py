@@ -27,7 +27,8 @@ def caeser():
   return f"""
   ==========
   Your caeser output is: {m}.
-  Your key is {key}. Please keep this safe!
+  Your key is {key}. 
+  Please keep this safe!
   Decypher using the unsigned or signed inverse of the key.
   ==========
   """
@@ -60,7 +61,8 @@ def autokey():
     print(f"""
     ==========
     Your encrypted message is: {m}.
-    Your key is {key}. Please keep this safe!
+    Your key is {key}. 
+    Please keep this safe!
     ==========
     """)
   elif question == "d":
@@ -100,7 +102,8 @@ def encrypt_rail_fence(plaintext, num_rails):
     return f"""
     ==========
     Your encrypted message is: {''.join(rail)}.
-    Your key is {num_rails}. Please keep this safe!
+    Your key is {num_rails}. 
+    Please keep this safe!
     ==========
     """
 
