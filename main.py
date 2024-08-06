@@ -77,19 +77,29 @@ def asym_menu():
     asym_menu()
 
 def trad_ciphers():
+  try:
     t = int(input("""
     Select the type of traditional cipher you wish to use:
     1) Caeser Cipher
     2) Autokey Cipher
     3) Rail Fence Cipher
     """))
-
     if t == 1:
       print(trad.caeser())
     elif t == 2:
       print(trad.autokey())
     elif t == 3:
       print(trad.rail_fence())
+    else:
+      print("""
+      Invalid choice. Try again.
+      """)
+      trad_ciphers()
+  except ValueError:
+    print("""
+    Invalid input. Must be an integer. Try again.
+    """)
+    trad_ciphers()
 
 def mod_ciphers():
     m = int(input("""
