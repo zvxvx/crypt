@@ -42,12 +42,18 @@ def mod_aes():
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
   if question == "e":
     key = generate_key_aes()
-    pt = input("Input plaintext " ).strip()
+    pt = input("Input plaintext: " ).strip()
     return encrypt_aes(pt, key)
   elif question == "d":
     ct = input("Please input ciphertext: ").strip()
     key = input("Please input your key: ").strip()
     return decrypt_aes(ct, key)
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    mod_aes()
+    
 
 # DES CIPHER
 
@@ -62,9 +68,9 @@ def encrypt_des(plaintext, key):
     encoded_key = base64.b64encode(key).decode('utf-8')
     return f"""
     ==========
-    your encrypted message is: {ct}
-    your key is: {encoded_key}
-    please keep this safe!
+    Your encrypted message is: {ct}
+    Your key is: {encoded_key}
+    Please keep this safe!
     ==========
     """
 
@@ -78,7 +84,7 @@ def decrypt_des(ciphertext, key):
         pt = unpad(cipher.decrypt(ct), DES.block_size).decode('utf-8')
         return f"""
         ==========
-        your decrypted message is: {pt}
+        Your decrypted message is: {pt}
         ==========
         """
     except (ValueError, KeyError):
@@ -88,9 +94,14 @@ def mod_des():
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
   if question == "e":
     key = generate_key_des()
-    pt = input("Input plaintext " ).strip()
+    pt = input("Input plaintext: " ).strip()
     return encrypt_des(pt, key)
   elif question == "d":
     ct = input("Please input ciphertext: ").strip()
     key = input("Please input your key: ").strip()
     return decrypt_des(ct, key)
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    mod_des()

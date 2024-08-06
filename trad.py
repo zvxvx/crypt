@@ -1,11 +1,14 @@
 def caeser():
-  print("""
-  CAESER CIPHER
-  """)
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   m = ""
-  pt = input("Input plaintext or ciphertext: ").upper().strip()
-  key = int(input("Input key or inverse key: "))
+  pt = input("Input plaintext w/o punctuation or spaces, or input ciphertext: ").upper().strip()
+  try:
+    key = int(input("Input numerical key or inverse key: "))
+  except ValueError:
+    print("""
+    Key must be a number. Try again.
+    """)
+    key = int(input("Input numerical key or inverse key: "))
   i = 0 
   while i < len(pt):
     c_i = alphabet.index(pt[i])
@@ -15,22 +18,19 @@ def caeser():
     i = i + 1
   return f"""
   ==========
-  Your encrypted message is: {m}.
+  Your caeser output is: {m}.
   Your key is {key}. Please keep this safe!
   Decypher using the unsigned or signed inverse of the key.
   ==========
   """
 
 def autokey():
-  print("""
-  AUTOKEY CIPHER
-  """)
   alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
   m = ""
   i = 0
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
   if question == "e":   
-    pt = input("Input plaintext: ").upper().strip()
+    pt = input("Input plaintext w/o punctuation or spaces: ").upper().strip()
     key = input("Input key: ").upper().strip()
     while i < len(pt):
       if i < len(key):
@@ -64,12 +64,16 @@ def autokey():
     Your decrypted message is: {m}.
     ==========
     """
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    autokey()
 
 def encrypt_rail_fence(plaintext, num_rails):
     rail = [''] * num_rails
     direction = None
     row = 0
-
     for char in plaintext:
         rail[row] += char
         if row == 0:
@@ -77,7 +81,6 @@ def encrypt_rail_fence(plaintext, num_rails):
         elif row == num_rails - 1:
             direction = -1
         row += direction
-
     return f"""
     ==========
     Your encrypted message is: {''.join(rail)}.
@@ -135,3 +138,8 @@ def rail_fence():
     ct = input("Input ciphertext: ").strip()
     rails = int(input("Number of rails: "))
     return decrypt_rail_fence(ct, rails)
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    rail_fence()

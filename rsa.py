@@ -38,32 +38,32 @@ def encrypt_rsa(plaintext):
     return f"""
     ++++ ENCRYPTION COMPLETE ++++
     Your input has been encryped in file rsa/encrypted_data.bin
-    Encryption b64 preview: {base64.b64encode(ciphertext).decode("utf-8")}
+    Encryption in b64: {base64.b64encode(ciphertext).decode("utf-8")}
     ++++ ENCRYPTION COMPLETE ++++
     """
 
 def decrypt_rsa():
-    private_key = RSA.import_key(open("rsa/private.pem").read())
+  private_key = RSA.import_key(open("rsa/private.pem").read())
 
-    with open("rsa/encrypted_data.bin", "rb") as f:
-        enc_session_key = f.read(private_key.size_in_bytes())
-        nonce = f.read(16)
-        tag = f.read(16)
-        ciphertext = f.read()
+  with open("rsa/encrypted_data.bin", "rb") as f:
+      enc_session_key = f.read(private_key.size_in_bytes())
+      nonce = f.read(16)
+      tag = f.read(16)
+      ciphertext = f.read()
 
-    cipher_rsa = PKCS1_OAEP.new(private_key)
-    session_key = cipher_rsa.decrypt(enc_session_key)
+  cipher_rsa = PKCS1_OAEP.new(private_key)
+  session_key = cipher_rsa.decrypt(enc_session_key)
 
-    cipher_aes = AES.new(session_key, AES.MODE_EAX, nonce)
-    data = cipher_aes.decrypt_and_verify(ciphertext, tag)
-    
-    plaintext = data.decode("utf-8")
-    
-    return f"""
-    ++++ DECRYPTION COMPLETE ++++
-    {plaintext}
-    ++++ DECRYPTION COMPLETE ++++
-    """
+  cipher_aes = AES.new(session_key, AES.MODE_EAX, nonce)
+  data = cipher_aes.decrypt_and_verify(ciphertext, tag)
+  
+  plaintext = data.decode("utf-8")
+  
+  return f"""
+  ++++ DECRYPTION COMPLETE ++++
+  {plaintext}
+  ++++ DECRYPTION COMPLETE ++++
+  """
 
 def asym_rsa():
   key_question = input("Generate new public and private keys? y/n ")
@@ -79,9 +79,14 @@ def asym_rsa():
     return rsa_en_de_cryptor()
 
 def rsa_en_de_cryptor():
-    question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
-    if question == "e":
-      pt = input("Input plaintext: ").strip()
-      return encrypt_rsa(pt)
-    elif question == "d":
-      return decrypt_rsa()
+  question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
+  if question == "e":
+    pt = input("Input plaintext: ").strip()
+    return encrypt_rsa(pt)
+  elif question == "d":
+    return decrypt_rsa() 
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    rsa_en_de_cryptor()
