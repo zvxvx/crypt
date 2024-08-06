@@ -25,24 +25,37 @@ def menu():
       print("""
       Invalid choice. Try again.
       """)
-      main()
+      menu()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    main()
+    menu()
 
 def sym_menu():
-  s = int(input("""
+  try:
+    s = int(input("""
     Select the type of cipher you wish to use:
     1) Traditional Cipher
     2) Modern Cipher
+    3) Main Menu
     """))
-
-  if s == 1:
-    trad_ciphers()
-  elif s == 2:
-    mod_ciphers()
+    if s == 1:
+      trad_ciphers()
+    elif s == 2:
+      mod_ciphers()
+    elif s == 3:
+      menu()
+    else:
+      print("""
+      Invalid choice. Try again.
+      """)
+      sym_menu()
+  except ValueError:
+    print("""
+    Invalid input. Must be an integer. Try again.
+    """)
+    sym_menu()
 
 def asym_menu():
   a = int(input("""
