@@ -58,13 +58,23 @@ def sym_menu():
     sym_menu()
 
 def asym_menu():
-  a = int(input("""
-  Select the type of Asymmetric cipher you wish to use:
-  1) RSA (Rivist-Shamir-Adleman)
-  """))
-
-  if a == 1:
-    print(rsa.asym_rsa())
+  try:
+    a = int(input("""
+    Select the type of Asymmetric cipher you wish to use:
+    1) RSA (Rivist-Shamir-Adleman)
+    """))
+    if a == 1:
+      print(rsa.asym_rsa())
+    else:
+      print("""
+      Invalid choice. Try again.
+      """)
+      asym_menu()
+  except ValueError:
+    print("""
+    Invalid input. Must be an integer. Try again.
+    """)
+    asym_menu()
 
 def trad_ciphers():
     t = int(input("""
