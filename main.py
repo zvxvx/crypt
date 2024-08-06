@@ -38,7 +38,7 @@ def sym_menu():
     Select the type of cipher you wish to use:
     1) Traditional Cipher
     2) Modern Cipher
-    3) Main Menu
+    3) Go Back
     """))
     if s == 1:
       trad_ciphers()
@@ -62,9 +62,12 @@ def asym_menu():
     a = int(input("""
     Select the type of Asymmetric cipher you wish to use:
     1) RSA (Rivist-Shamir-Adleman)
+    2) Go Back
     """))
     if a == 1:
       print(rsa.asym_rsa())
+    elif a == 2:
+      menu()
     else:
       print("""
       Invalid choice. Try again.
@@ -83,6 +86,7 @@ def trad_ciphers():
     1) Caeser Cipher
     2) Autokey Cipher
     3) Rail Fence Cipher
+    4) Go Back
     """))
     if t == 1:
       print(trad.caeser())
@@ -90,6 +94,8 @@ def trad_ciphers():
       print(trad.autokey())
     elif t == 3:
       print(trad.rail_fence())
+    elif t == 4:
+      sym_menu()
     else:
       print("""
       Invalid choice. Try again.
@@ -102,15 +108,28 @@ def trad_ciphers():
     trad_ciphers()
 
 def mod_ciphers():
+  try:
     m = int(input("""
     Select the type of modern cipher you wish to use:
     1) AES (Advanced Encryption Standard)
     2) DES (Data Encryption Standard)
+    3) Go Back
     """))
-
     if m == 1:
       print(mod.mod_aes())
     elif m == 2:
       print(mod.mod_des())
+    elif m == 3:
+      sym_menu()
+    else:
+      print("""
+      Invalid choice. Try again.
+      """)
+      mod_ciphers()
+  except ValueError:
+    print("""
+    Invalid input. Must be an integer. Try again.
+    """)
+    mod_ciphers()
 
 main()
