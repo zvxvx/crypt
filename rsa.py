@@ -66,6 +66,16 @@ def decrypt_rsa():
   """
 
 def asym_rsa():
+  print("""
+  ██████╗ ███████╗ █████╗ 
+  ██╔══██╗██╔════╝██╔══██╗
+  ██████╔╝███████╗███████║
+  ██╔══██╗╚════██║██╔══██║
+  ██║  ██║███████║██║  ██║
+  ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
+  Note: If you have not previously generated keys, you'll need to do so. 
+  Note: You only need to do this once.
+  """)
   key_question = input("Generate new public and private keys? y/n ")
   if key_question == "y":
     generate_keys()

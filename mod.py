@@ -39,6 +39,14 @@ def decrypt_aes(ciphertext, key):
         return None
 
 def mod_aes():
+  print("""
+   █████╗ ███████╗███████╗
+  ██╔══██╗██╔════╝██╔════╝
+  ███████║█████╗  ███████╗
+  ██╔══██║██╔══╝  ╚════██║
+  ██║  ██║███████╗███████║
+  ╚═╝  ╚═╝╚══════╝╚══════╝
+  """)
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
   if question == "e":
     key = generate_key_aes()
@@ -91,6 +99,14 @@ def decrypt_des(ciphertext, key):
         return None
 
 def mod_des():
+  print("""
+  ██████╗ ███████╗███████╗
+  ██╔══██╗██╔════╝██╔════╝
+  ██║  ██║█████╗  ███████╗
+  ██║  ██║██╔══╝  ╚════██║
+  ██████╔╝███████╗███████║
+  ╚═════╝ ╚══════╝╚══════╝
+  """)
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
   if question == "e":
     key = generate_key_des()
