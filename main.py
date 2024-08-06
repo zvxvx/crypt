@@ -4,7 +4,6 @@ import rsa
 
 def main():
   print("""
-                                                          
                                                    █    
                                                   ██    
                                                   ██    
