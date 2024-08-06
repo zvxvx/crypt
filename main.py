@@ -3,9 +3,6 @@ import trad
 import rsa
 
 def main():
-  menu()
-
-def menu():
   print("""
                                                           
                                                    █    
@@ -27,6 +24,9 @@ def menu():
                        █      ████    ██                
  A friendly command-line application for encryption.                                                        
   """)
+  return menu()
+
+def menu():
   try:
     c = int(input("""
     Select the type of encryption you wish to perform: 
@@ -35,9 +35,9 @@ def menu():
     3) Quit
     """))
     if c == 1:
-        sym_menu()
+        return sym_menu()
     elif c == 2:
-        asym_menu()
+        return asym_menu()
     elif c == 3:
         print("""
         Thank you for using Crypt!
@@ -46,12 +46,12 @@ def menu():
       print("""
       Invalid choice. Try again.
       """)
-      menu()
+      return menu()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    menu()
+    return menu()
 
 def sym_menu():
   try:
@@ -62,21 +62,21 @@ def sym_menu():
     3) Go Back
     """))
     if s == 1:
-      trad_ciphers()
+      return trad_ciphers()
     elif s == 2:
-      mod_ciphers()
+      return mod_ciphers()
     elif s == 3:
-      menu()
+      return menu()
     else:
       print("""
       Invalid choice. Try again.
       """)
-      sym_menu()
+      return sym_menu()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    sym_menu()
+    return sym_menu()
 
 def asym_menu():
   try:
@@ -87,18 +87,19 @@ def asym_menu():
     """))
     if a == 1:
       print(rsa.asym_rsa())
+      return menu()
     elif a == 2:
-      menu()
+      return menu()
     else:
       print("""
       Invalid choice. Try again.
       """)
-      asym_menu()
+      return asym_menu()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    asym_menu()
+    return asym_menu()
 
 def trad_ciphers():
   try:
@@ -111,22 +112,25 @@ def trad_ciphers():
     """))
     if t == 1:
       print(trad.caeser())
+      return menu()
     elif t == 2:
       print(trad.autokey())
+      return menu()
     elif t == 3:
       print(trad.rail_fence())
+      return menu()
     elif t == 4:
-      sym_menu()
+      return sym_menu()
     else:
       print("""
       Invalid choice. Try again.
       """)
-      trad_ciphers()
+      return trad_ciphers()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    trad_ciphers()
+    return trad_ciphers()
 
 def mod_ciphers():
   try:
@@ -138,19 +142,22 @@ def mod_ciphers():
     """))
     if m == 1:
       print(mod.mod_aes())
+      return menu()
     elif m == 2:
       print(mod.mod_des())
+      return menu()
     elif m == 3:
-      sym_menu()
+      return sym_menu()
     else:
       print("""
       Invalid choice. Try again.
       """)
-      mod_ciphers()
+      return mod_ciphers()
   except ValueError:
     print("""
     Invalid input. Must be an integer. Try again.
     """)
-    mod_ciphers()
+    return mod_ciphers()
+
 
 main()
