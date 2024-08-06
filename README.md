@@ -1,8 +1,6 @@
 ![crypt](./crypt.png)
 
-A friendly command-line application for encryption.
-
-The CLA includes traditional ciphers such as the Caesar Cipher, Autokey Cipher, and Railfence Cipher, as well as modern ciphers like AES, DES, and the asymmetrical cipher RSA.
+Crypt includes traditional ciphers such as the Caesar Cipher, Autokey Cipher, and Railfence Cipher, as well as modern ciphers like AES, DES, and the asymmetrical cipher RSA.
 
 ## How to:
 
