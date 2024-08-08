@@ -73,7 +73,7 @@ def asym_rsa():
   ██╔══██╗╚════██║██╔══██║
   ██║  ██║███████║██║  ██║
   ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-  Note: If you have not previously generated keys, you'll need to do so. 
+  Note: If you have not previously generated keys, you'll need to do so, otherwise you will get kicked back to the menu. 
   Note: You only need to do this once.
   """)
   key_question = input("Generate new public and private keys? y/n ")
@@ -87,6 +87,11 @@ def asym_rsa():
     return rsa_en_de_cryptor()
   elif key_question == "n":
     return rsa_en_de_cryptor()
+  else:
+    print("""
+    Invalid option. Try again.
+    """)
+    return asym_rsa()
 
 def rsa_en_de_cryptor():
   question = input("Do you wish to (e)ncrypt or (d)ecrypt? ")
@@ -99,4 +104,4 @@ def rsa_en_de_cryptor():
     print("""
     Invalid option. Try again.
     """)
-    rsa_en_de_cryptor()
+    return rsa_en_de_cryptor()
