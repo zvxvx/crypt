@@ -92,7 +92,7 @@ The ciphertext is written in the zigzag pattern and read off in the original ord
 
 - Plaintext: HELLO WORLD
 - Number of Rails: 3
-- Ciphertext: HOLELWRDLO
+- Ciphertext: HOREL OLLWD
 
 ## Modern Ciphers
 
